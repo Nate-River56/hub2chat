@@ -38,4 +38,5 @@ jspm_packages
 
 # User definision
 .envrc
-
+project.json
+*.zip
