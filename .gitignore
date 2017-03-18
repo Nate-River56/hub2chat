@@ -40,3 +40,6 @@ jspm_packages
 .envrc
 project.json
 *.zip
+/functions/hello/lib/*
+!/functions/hello/lib/.gitkeep
+
