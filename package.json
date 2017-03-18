@@ -2,6 +2,7 @@
   "name": "hub2chat",
   "version": "0.0.1",
   "description": "Post GitHub Status to Chat Services via Amazon SNS and Lambda",
+  "main": "lib/index.js",
   "scripts": {
     "pkg": "./scripts/package.sh",
     "deploy": "./node_modules/.bin/apex deploy"
