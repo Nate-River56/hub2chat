@@ -1,0 +1,37 @@
+{
+  "name": "hub2chat",
+  "version": "0.0.1",
+  "description": "Post GitHub Status to Chat Services via Amazon SNS and Lambda",
+  "scripts": {
+    "test": "echo test && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Nate-River56/hub2chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nate-River56/hub2chat/issues"
+  },
+  "engine": {
+    "node": ">=4.3"
+  },
+  "keywords": [
+    "chat",
+    "chatwork",
+    "aws-sns",
+    "aws-lambda"
+  ],
+  "author": {
+    "name": "Nate-River56",
+    "email": "hydrangea56@me.com",
+    "url": "https://github.com/Nate-River56"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/Nate-River56/hub2chat#readme",
+  "devDependencies": {
+    "apex-bin": "^0.10.3"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.22.0"
+  }
+}
