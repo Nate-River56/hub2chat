@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Post GitHub Status to Chat Services via Amazon SNS and Lambda",
   "scripts": {
-    "test": "echo test && exit 1"
+    "pkg": "./scripts/package.sh",
+    "deploy": "./node_modules/.bin/apex deploy"
   },
   "repository": {
     "type": "git",
