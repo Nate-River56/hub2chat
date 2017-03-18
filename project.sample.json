@@ -1,0 +1,13 @@
+{
+  "name": "hub2chat",
+  "description": "Post GitHub Statues to chat services.",
+  "role": "",
+  "runtime": "nodejs4.3",
+  "handler": "lib.default",
+  "timeout": 10,
+  "hooks": {
+    "build": "cp ../../package.json . && npm install --production && ../../node_modules/.bin/babel src -d lib",
+    "clean": "rm -rf lib node_modules package.json"
+  },
+  "environment": {}
+}
