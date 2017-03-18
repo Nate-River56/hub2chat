@@ -1,0 +1,13 @@
+[info][title]Push event at {{repository.full_name}}[/title]URL: {{repository.url}}
+Ref: {{ref}}
+CompareURL: {{compare}}
+GitHub-User: {{sender.login}}
+{{#commits}}
+[info][title]Commit: {{message}}[/title]URL: {{url}}
+[hr]{{#if added}}Added:[code]{{#added}}{{this}}
+{{/added}}[/code]
+{{/if}}{{#if modified}}Modified:[code]{{#modified}}{{this}}
+{{/modified}}[/code]
+{{/if}}{{#if removed}}Removed:[code]{{#removed}}{{this}}
+{{/removed}}[/code]
+{{/if}}[/info]{{/commits}}[/info]
