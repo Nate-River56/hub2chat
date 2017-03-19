@@ -3,7 +3,7 @@ import handlebars from 'handlebars';
 
 let build = (eventName, payload) =>{
   return Promise.denodeify(fs.readFile)
-    .call(fs, './template/' + eventName + '.hbs')
+    .call(fs, './templates/' + eventName + '.hbs')
     .then((source)=>{
       return Promise.resolve(handlebars.compile(source))
     })
