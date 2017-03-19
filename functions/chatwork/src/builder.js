@@ -1,7 +1,7 @@
 import fs from 'fs';
 import handlebars from 'handlebars';
 
-let build = (eventName, payload) =>{
+exports.build = (eventName, payload) =>{
   const source = fs.readFileSync(
     './templates/' + eventName +'.hbs',
     'utf-8'
@@ -15,5 +15,3 @@ let build = (eventName, payload) =>{
 
   return message;
 }
-
-export default build;

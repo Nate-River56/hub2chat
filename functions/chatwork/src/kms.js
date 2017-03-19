@@ -1,6 +1,6 @@
 import aws from 'aws-sdk';
 
-let decrypt = (enc_token)=>{
+exports.decrypt = (enc_token)=>{
   
   const kms = new aws.KMS();
 
@@ -15,6 +15,4 @@ let decrypt = (enc_token)=>{
     })
   });
 }
-
-export default decrypt;
 
