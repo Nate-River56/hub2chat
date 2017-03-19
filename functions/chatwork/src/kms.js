@@ -1,23 +1,20 @@
 import aws from 'aws-sdk';
 
-export default class Kms {
+let decrypt = (enc_token)=>{
+  
+  const kms = new aws.KMS();
 
-  constructor(){
-    this.kms = new aws.KMS();
-  }
-
-  decrypt(enc_token){
-    return new Promise((resolve, reject) => {
-      this.kms.decrypt({CiphertextBlob: new Buffer(enc_token, 'base64')}, (err, data) => {
-        if(err){
-            console.log("Decrypt error.");
-            reject(err);
-        }
-        // Return decrypted token
-        resolve(data.Plaintext.toString('ascii'));
-      })
-    });
-  }
-
+  return new Promise((resolve, reject) => {
+    kms.decrypt({CiphertextBlob: new Buffer(enc_token, 'base64')}, (err, data) => {
+      if(err){
+          console.log("Decrypt error.");
+          reject(err);
+      }
+      // Return decrypted token
+      resolve(data.Plaintext.toString('ascii'));
+    })
+  });
 }
+
+export default decrypt;
 
