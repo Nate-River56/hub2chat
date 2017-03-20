@@ -34,12 +34,12 @@ exports.handler = (event, context, callback) => {
       payload[1], // Chatwork Room ID
       payload[2]  // Chatwork message body
     );
-  }).then((text)=>{
-    context.succeed();
+  }).then((res)=>{
+    context.succeed(res);
   }).catch((reason)=>{
     console.log(reason);
     console.log("Not post to chatwork.");
-    context.fail();
+    context.fail(reason);
   });
 
 }
