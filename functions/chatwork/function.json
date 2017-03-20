@@ -2,5 +2,9 @@
   "description": "Post GitHub Statuses to chatwork",
   "runtime": "nodejs4.3",
   "memory": 128,
-  "timeout": 3
+  "timeout": 20,
+  "handler": "lib/index.handler",
+  "environment": {
+    "CHATWORK_API_TOKEN": "AQECAHgADQlXk9mgMi3gkhLv6mfM+U4f6Dyw00z4/0KozV/90wAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDGXoOygjWr8XhnVlPwIBEIA75LeDaYJmleI06fpsbwwYEDJ9aILVWcJSx4QIsfBB8Eb4HjH/TCRZhQ+onRDTHwsk/x7RGqUUAlPnrc4="
+  }
 }
