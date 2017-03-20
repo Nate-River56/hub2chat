@@ -6,15 +6,6 @@ exports.handler = (event, context, callback) => {
 
   console.log('Received event:', JSON.stringify(event, null, 2));
 
-  // try {
-  //   var config = require('./.env.json')
-  //   for (var key in config) {
-  //     process.env[key] = config[key]
-  //   }
-  // } catch (err) {
-  //   // ignore
-  // }
-
   // Encrypted Chatwork token
   const enc_cwtoken = process.env.CHATWORK_API_TOKEN;
 
@@ -41,10 +32,9 @@ exports.handler = (event, context, callback) => {
     return cw.message(
       payload[0], // Raw Chatwork token
       payload[1], // Chatwork Room ID
-      payload[2]
+      payload[2]  // Chatwork message body
     );
   }).then((text)=>{
-    callback(null, {"text": text});
     context.succeed();
   }).catch((reason)=>{
     console.log(reason);
