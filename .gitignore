@@ -42,4 +42,6 @@ project.json
 *.zip
 /functions/hello/lib/*
 !/functions/hello/lib/.gitkeep
+blobs/
+!blobs/.gitkeep
 
