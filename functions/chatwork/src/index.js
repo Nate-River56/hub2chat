@@ -10,13 +10,13 @@ exports.handler = (event, context, callback) => {
   const enc_cwtoken = process.env.CHATWORK_API_TOKEN;
 
   // Chatwork Room ID from queryString
-  const room_id = event.pathParameters['room_id'];
+  const room_id = event.pathParameters['room_id'] || '';
 
   // Payload from GitHub
   const payload = event.requestParameters;
 
   // GitHub Event Name
-  const eventName = event.headers['X-GitHub-Event'];
+  const eventName = event.headers['X-GitHub-Event'] || event.headers['x-github-event'];
 
   Promise.all([
     kms.decrypt(enc_cwtoken),
