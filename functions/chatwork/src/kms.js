@@ -1,13 +1,11 @@
 import aws from 'aws-sdk';
 
 exports.decrypt = (enc_token)=>{
-  
-  const kms = new aws.KMS();
-
   return new Promise((resolve, reject) => {
+    const kms = new aws.KMS();
     kms.decrypt({CiphertextBlob: new Buffer(enc_token, 'base64')}, (err, data) => {
       if(err){
-          console.log("Decrypt error.");
+          console.log("KMS decryption error.");
           reject(err);
       }
       // Return decrypted token
