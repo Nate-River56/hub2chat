@@ -1,25 +1,30 @@
-import request from 'superagent';
+import request from 'request';
 
-exports.message = (api_token, room_id, msg) => {
-  return new Promise((resolve, reject) => {
-    request
-      .post(endpoint(room_id))
-      .set('X-ChatWorkToken', api_token)
-      .send(`body=${encodeURIComponent(msg)}`)
-      .end((err, res) => {
-        if (!err && res.statusCode == 200){
-          console.log("Post Success!!");
-          resolve(res);
-        } else {
-          console.log("Post Failed..");
-          console.log(err);
-          reject(err);
-        }
-      })
-  })
-}
+exports.message = (apiToken, roomId, msg)=>{
+  return new Promise((resolve, reject)=>{
+    const options = {
+      url: `https://api.chatwork.com/v2/rooms/${roomId}/messages`,
+      method: 'POST',
+      headers: {
+        'X-ChatWorkToken': apiToken
+      },
+      form: {body: msg},
+      json: true
+    };
 
-const endpoint = (room_id) => {
-  return `https://api.chatwork.com/v2/rooms/${room_id}/messages`
+    request(options, (err, res, body)=>{
+      res.request.headers['X-ChatWorkToken'] = '';
+      if (!err && res.statusCode == 200){
+        console.log("Post Success!!");
+        resolve(res);
+      } else {
+        console.log("Post Failed");
+        console.log(JSON.stringify(res, null, 2));
+        console.log(err);
+        reject(err);
+      }
+    });
+  });
+
 }
 
