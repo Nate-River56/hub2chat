@@ -3,8 +3,9 @@ import handlebars from 'handlebars';
 
 exports.build = (eventName, payload) =>{
   return new Promise((resolve, reject)=>{
+    let source;
     try {
-      const source = fs.readFileSync(
+      source = fs.readFileSync(
         './templates/' + eventName +'.hbs',
         'utf-8'
       );
