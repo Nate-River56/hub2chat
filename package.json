@@ -1,7 +1,7 @@
 {
   "name": "hub2chat",
   "version": "0.0.1",
-  "description": "Post GitHub Status to Chat Services via Amazon SNS and Lambda",
+  "description": "Post GitHub Status to Chat Services via Amazon API Gateway and Lambda",
   "main": "lib/index.js",
   "scripts": {
     "pkg": "./scripts/package.sh",
@@ -18,9 +18,9 @@
     "node": ">=4.3"
   },
   "keywords": [
-    "chat",
+    "chatbot",
     "chatwork",
-    "aws-sns",
+    "aws-apigateway",
     "aws-lambda"
   ],
   "author": {
