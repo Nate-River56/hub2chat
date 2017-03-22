@@ -15,7 +15,7 @@ exports.build = (eventName, payload) =>{
     }
     const template = handlebars.compile(source);
     const message = template(payload);
-
+    console.log(message);
     resolve(message);
   });
 }

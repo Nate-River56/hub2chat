@@ -8,7 +8,6 @@ exports.verify = (input, key) => {
 
     if(hash === key){
       resolve(input);
-      console.log(hash);
     }else{
       reject({"error": "Authentication Failed"});
     }
