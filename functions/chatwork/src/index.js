@@ -7,10 +7,10 @@ exports.handler = (event, context, callback) => {
   console.log('Received event:', JSON.stringify(event, null, 2));
 
   // Encrypted Chatwork token
-  const enc_cwtoken = process.env.CHATWORK_API_TOKEN || '';
+  const encCwtoken = process.env.CHATWORK_API_TOKEN || '';
 
   // Chatwork Room ID from queryString
-  const room_id = event.pathParameters.room_id || '';
+  const roomId = event.pathParameters.room_id || '';
 
   // Payload from GitHub
   const payload = event.requestParameters;
@@ -22,15 +22,15 @@ exports.handler = (event, context, callback) => {
   const token = event.queryParameters.token || '';
 
   // API token key
-  const token_key = process.env.API_TOKEN || '';
+  const tokenKey = process.env.API_TOKEN || '';
 
-  auth.verify(token, token_key).then(() => Promise.all([
-    kms.decrypt(enc_cwtoken),
+  auth.verify(token, tokenKey).then(() => Promise.all([
+    kms.decrypt(encCwtoken),
     new Promise((resolve, reject) => {
-      if (room_id != '') {
-        resolve(room_id);
+      if (roomId != '') {
+        resolve(roomId);
       } else {
-        reject('room_id is blank.');
+        reject('roomId is blank.');
       }
     }),
     template.build(eventName, payload),
@@ -38,7 +38,7 @@ exports.handler = (event, context, callback) => {
   .then(payload => cw.message(
       payload[0], // Raw Chatwork token
       payload[1], // Chatwork Room ID
-      payload[2],  // Chatwork message body
+      payload[2], // Chatwork message body
     ))
   .then((res) => {
     context.succeed(res);
