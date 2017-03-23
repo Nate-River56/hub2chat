@@ -1,5 +1,8 @@
 import fs from 'fs';
 import handlebars from 'handlebars';
+import console from 'node-custom-console';
+
+const cnsl = console('builder');
 
 exports.build = (eventName, payload) => new Promise((resolve, reject) => {
   let source;
@@ -9,11 +12,11 @@ exports.build = (eventName, payload) => new Promise((resolve, reject) => {
         'utf-8',
       );
   } catch (e) {
-    console.log('ReadFile Error.');
+    cnsl.log('ReadFile Error.');
     reject(e);
   }
   const template = handlebars.compile(source);
   const message = template(payload);
-  console.log(message);
+  cnsl.info(message);
   resolve(message);
 });

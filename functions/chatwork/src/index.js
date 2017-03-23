@@ -1,10 +1,13 @@
+import console from 'node-custom-console';
 import template from './builder';
 import kms from './kms';
 import cw from './post';
 import auth from './auth';
 
+const cnsl = console('index');
+
 exports.handler = (event, context) => {
-  console.log('Received event:', JSON.stringify(event, null, 2));
+  cnsl.info('Received event:', JSON.stringify(event, null, 2));
 
   // Encrypted Chatwork token
   const encCwtoken = process.env.CHATWORK_API_TOKEN || '';
@@ -44,8 +47,8 @@ exports.handler = (event, context) => {
     context.succeed(res);
   })
   .catch((reason) => {
-    console.log(reason);
-    console.log('Not post to chatwork.');
+    cnsl.log(reason);
+    cnsl.log('Not post to chatwork.');
     context.fail(reason);
   });
 };
