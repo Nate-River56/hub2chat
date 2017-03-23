@@ -1,7 +1,7 @@
-import template from './builder.js';
-import kms from './kms.js';
-import cw from './post.js';
-import auth from './auth.js';
+import template from './builder';
+import kms from './kms';
+import cw from './post';
+import auth from './auth';
 
 exports.handler = (event, context, callback) => {
   console.log('Received event:', JSON.stringify(event, null, 2));
