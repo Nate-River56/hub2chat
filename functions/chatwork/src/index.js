@@ -35,10 +35,10 @@ exports.handler = (event, context) => {
     }),
     template.build(eventName, payload),
   ]))
-  .then(payload => cw.message(
-      payload[0], // Raw Chatwork token
-      payload[1], // Chatwork Room ID
-      payload[2], // Chatwork message body
+  .then(values => cw.message(
+      values[0], // Raw Chatwork token
+      values[1], // Chatwork Room ID
+      values[2], // Chatwork message body
     ))
   .then((res) => {
     context.succeed(res);
