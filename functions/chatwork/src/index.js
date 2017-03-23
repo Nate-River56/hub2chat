@@ -3,7 +3,7 @@ import kms from './kms';
 import cw from './post';
 import auth from './auth';
 
-exports.handler = (event, context, callback) => {
+exports.handler = (event, context) => {
   console.log('Received event:', JSON.stringify(event, null, 2));
 
   // Encrypted Chatwork token
