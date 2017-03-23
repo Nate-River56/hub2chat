@@ -27,7 +27,7 @@ exports.handler = (event, context) => {
   auth.verify(token, tokenKey).then(() => Promise.all([
     kms.decrypt(encCwtoken),
     new Promise((resolve, reject) => {
-      if (roomId != '') {
+      if (roomId !== '') {
         resolve(roomId);
       } else {
         reject('roomId is blank.');

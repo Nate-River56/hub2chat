@@ -13,7 +13,7 @@ exports.message = (apiToken, roomId, msg) => new Promise((resolve, reject) => {
 
   request(options, (err, res, body) => {
     res.request.headers['X-ChatWorkToken'] = '';
-    if (!err && res.statusCode == 200) {
+    if (!err && res.statusCode === 200) {
       console.log('Post Success!!');
       console.log(body);
       resolve(res);
