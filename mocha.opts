@@ -1,0 +1,5 @@
+--compilers js:babel-register
+--require intelli-espower-loader
+--ui bdd
+--reporter spec
+--timeout 500
