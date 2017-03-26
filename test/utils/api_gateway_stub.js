@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import _ from 'lodash';
 
 export default class AGStub {
@@ -29,10 +30,14 @@ export default class AGStub {
     );
   }
 
-  static getAGStub(src = './test/api_gateway.json') {
+  static getAGStub() {
+    const srcPath = path.resolve(path.join(
+      __dirname,
+      './api_gateway.json',
+    ));
     return new Promise((resolve, reject) => {
       try {
-        fs.readFile(src, 'utf-8', (err, AGSource) => {
+        fs.readFile(srcPath, 'utf-8', (err, AGSource) => {
           if (err) {
             reject(err);
           }
