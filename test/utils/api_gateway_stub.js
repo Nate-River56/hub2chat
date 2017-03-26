@@ -17,7 +17,7 @@ export default class AGStub {
   }
 
   getEvent(eventName = 'push') {
-    this.getAGStub().then(AGEventBase => new Promise((resolve, reject) => {
+    this.constructor.getAGStub().then(AGEventBase => new Promise((resolve, reject) => {
       if (_.has(AGEventBase, 'requestParameters') && _.has(AGEventBase, 'headers["X-GitHub-Event"]')) {
         const AGEvent = AGEventBase;
         AGEvent.requestParameters = this.hubEvent;
@@ -31,10 +31,7 @@ export default class AGStub {
   }
 
   static getAGStub() {
-    const srcPath = path.resolve(path.join(
-      __dirname,
-      './api_gateway.json',
-    ));
+    const srcPath = path.join(__dirname, './api_gateway.json');
     return new Promise((resolve, reject) => {
       try {
         fs.readFile(srcPath, 'utf-8', (err, AGSource) => {

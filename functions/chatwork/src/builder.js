@@ -9,10 +9,7 @@ const cnsl = console('builder');
 exports.build = (eventName, payload) => new Promise((resolve, reject) => {
   try {
     fs.readFile(
-      path.resolve(path.join(
-        __dirname,
-        `../templates/${eventName}.hbs`,
-      )),
+      path.join(__dirname, `../templates/${eventName}.hbs`),
       'utf-8',
       (err, source) => {
         if (err) {
