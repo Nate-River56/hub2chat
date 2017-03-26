@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
+import denodeify from 'denodeify';
 
 export default class AGStub {
   constructor(jsonText) {
@@ -32,17 +33,10 @@ export default class AGStub {
 
   static getAGStub() {
     const srcPath = path.join(__dirname, './api_gateway.json');
-    return new Promise((resolve, reject) => {
-      try {
-        fs.readFile(srcPath, 'utf-8', (err, AGSource) => {
-          if (err) {
-            reject(err);
-          }
-          resolve(JSON.parse(AGSource));
-        });
-      } catch (e) {
-        reject(e);
-      }
-    });
+    const readFile = denodeify(fs.readFile);
+
+    return readFile(srcPath, 'utf-8')
+      .then(AGSource => JSON.parse(AGSource))
+      .catch(err => err);
   }
 }
