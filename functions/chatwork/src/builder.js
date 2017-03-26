@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import handlebars from 'handlebars';
 import console from 'node-custom-console';
 
@@ -8,7 +9,10 @@ exports.build = (eventName, payload) => new Promise((resolve, reject) => {
   let source;
   try {
     source = fs.readFileSync(
-        `./templates/${eventName}.hbs`,
+        path.resolve(path.join(
+          __dirname,
+          `../templates/${eventName}.hbs`,
+        )),
         'utf-8',
       );
   } catch (e) {
