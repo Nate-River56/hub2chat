@@ -1,0 +1,43 @@
+{
+    "accountId": "",
+    "apiId": "abcdefghij",
+    "apiKey": "",
+    "caller": "",
+    "headers": {
+        "Accept": "*/*",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-Country": "US",
+        "content-type": "application/json",
+        "Host": "xxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com",
+        "User-Agent": "GitHub-Hookshot/xxxxxxx",
+        "Via": "1.1 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "",
+        "X-Amzn-Trace-Id": "Root=1-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "X-Forwarded-For": "8.8.8.8, 8.8.8.4",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https",
+        "X-GitHub-Delivery": "12345678-9abc-df12-3456-789abcdef123",
+        "X-GitHub-Event": "XXX"
+    },
+    "httpMethod": "POST",
+    "path": "/chatwork/{room_id}",
+    "pathParameters": {
+        "room_id": "01234567"
+    },
+    "queryParameters": {
+        "token": "foo"
+    },
+    "requestId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "requestParameters": {
+    },
+    "resourceId": "xxxxxx",
+    "sourceIp": "192.168.10.1",
+    "stage": "dev",
+    "user": "",
+    "userAgent": "GitHub-Hookshot/12ab007",
+    "userArn": ""
+}
