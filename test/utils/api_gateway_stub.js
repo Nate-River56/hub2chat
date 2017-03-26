@@ -17,7 +17,7 @@ export default class AGStub {
   }
 
   getEvent(eventName = 'push') {
-    this.constructor.getAGStub().then(AGEventBase => new Promise((resolve, reject) => {
+    return this.constructor.getAGStub().then(AGEventBase => new Promise((resolve, reject) => {
       if (_.has(AGEventBase, 'requestParameters') && _.has(AGEventBase, 'headers["X-GitHub-Event"]')) {
         const AGEvent = AGEventBase;
         AGEvent.requestParameters = this.hubEvent;
