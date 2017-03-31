@@ -7,7 +7,8 @@
     "test": "NODE_ENV=development ./node_modules/.bin/mocha",
     "pkg": "./scripts/package.sh",
     "deploy": "./node_modules/.bin/apex deploy",
-    "lint": "./node_modules/.bin/eslint"
+    "lint": "./node_modules/.bin/eslint",
+    "fix": "./node_modules/.bin/eslint --fix ."
   },
   "repository": {
     "type": "git",
